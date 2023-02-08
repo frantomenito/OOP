@@ -1,7 +1,0 @@
-C:\Users\dmaks\RiderProjects\OOPNew1\OOPNew1\bin\Debug\OOPNew1.exe
-C:\Users\dmaks\RiderProjects\OOPNew1\OOPNew1\bin\Debug\OOPNew1.pdb
-C:\Users\dmaks\RiderProjects\OOPNew1\OOPNew1\obj\Debug\OOPNew1.csproj.AssemblyReference.cache
-C:\Users\dmaks\RiderProjects\OOPNew1\OOPNew1\obj\Debug\OOPNew1.csproj.SuggestedBindingRedirects.cache
-C:\Users\dmaks\RiderProjects\OOPNew1\OOPNew1\obj\Debug\OOPNew1.csproj.CoreCompileInputs.cache
-C:\Users\dmaks\RiderProjects\OOPNew1\OOPNew1\obj\Debug\OOPNew1.exe
-C:\Users\dmaks\RiderProjects\OOPNew1\OOPNew1\obj\Debug\OOPNew1.pdb
