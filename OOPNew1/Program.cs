@@ -169,11 +169,17 @@ namespace OOPNew1
                         showMenu();
                         break;
                     case "++":
+                        if (!ifOrdered)
+                        {
+                            Console.WriteLine("Wrong choice!");
+                            showMenu();
+                            break;
+                        }
                         Console.WriteLine("Enter integer element");
                         int element = int.Parse(Console.ReadLine().ToString());
-
-                        //currentArrayO = currentArrayO + element;
-                        Console.WriteLine("\nMultiplied!");
+                    
+                        currentArrayO = (TOderedArray)currentArrayO + element;
+                        Console.WriteLine("\nAdded!");
 
                         showMenu();
                         break;
@@ -190,6 +196,22 @@ namespace OOPNew1
                             currentArrayO = new TArray();
                         }
                         adding = true;
+
+                        showMenu();
+                        break;
+                    case "--":
+                        if (!ifOrdered)
+                        {
+                            Console.WriteLine("Wrong choice!");
+                            showMenu();
+                            break;
+                        }
+                        
+                        Console.WriteLine("Enter integer element");
+                        int minusElement = int.Parse(Console.ReadLine().ToString());
+                    
+                        currentArrayO = (TOderedArray)currentArrayO - minusElement;
+                        Console.WriteLine("\nRemoved if exists!");
 
                         showMenu();
                         break;
@@ -387,7 +409,7 @@ namespace OOPNew1
 
    internal class TOderedArray : TArray
    {
-       public static TOderedArray operator +(TOderedArray a, int b)
+       public static TOderedArray operator +(TOderedArray a, Int32 b)
        {
            TOderedArray returnArray = new TOderedArray(a);
            returnArray.append(b);
