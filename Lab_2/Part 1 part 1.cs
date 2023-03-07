@@ -3,22 +3,17 @@ using System.Linq;
 
 namespace Lab_2
 {
-    internal class Program
+    internal class Part_1_part_1
     {
         static double[] vector = new double[0];
 
-        public static void Main(string[] args)
-        {
-            showMenu();
-        }
-
-        static void showMenu()
+        public void showMenu()
         {
             Console.WriteLine("\n\nOptions Menu:");
             Console.WriteLine("1-Add value to vector");
             Console.WriteLine("2-Show vector values");
             Console.WriteLine("3-Do lab_2 part 1 part 1");
-
+            Console.WriteLine("4-Exit");
 
             string options = Console.ReadLine().ToString();
             switch (options)
@@ -68,7 +63,8 @@ namespace Lab_2
                     
                     showMenu();
                     break;
-                
+                case "4":
+                    break;
                 default:
                     Console.WriteLine("Wrong choice!");
                     showMenu();
