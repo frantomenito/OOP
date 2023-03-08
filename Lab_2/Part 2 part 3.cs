@@ -5,8 +5,8 @@ using System.Threading;
 namespace Lab_2
 {
     public class Part_2_part_3
-    {
-        static double[][] matrix = new double[0][];
+    { 
+        double[][] matrix = new double[0][];
         private int rowLenght = 0;
         public void showMenu()
         {
@@ -59,6 +59,8 @@ namespace Lab_2
                         for (int j = 0; j < matrix[0].Length; j++)
                         {
                             Console.Write(matrix[i][j]);
+                            Console.Write(" ");
+                            
                         }
                         Console.Write("\n");
                     }

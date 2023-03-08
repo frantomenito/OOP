@@ -6,14 +6,15 @@ namespace Lab_2
 {
     public class Part_2_part_1
     {
-        static double[][] matrix = new double[0][];
+        double[][] matrix = new double[0][];
         private int rowLenght = 0;
+
         public void showMenu()
         {
             Console.WriteLine("\n\nOptions Menu:");
             Console.WriteLine("1-Make matrix");
             Console.WriteLine("2-Show values");
-            Console.WriteLine("3-Do stuff");
+            Console.WriteLine("3-Offset values in even rows");
             Console.WriteLine("4-Exit to main menu");
 
 
@@ -23,10 +24,11 @@ namespace Lab_2
                 case "1":
                     bool keepGoing = true;
                     int rows = 1;
-                    
+
                     while (keepGoing)
                     {
-                        Console.WriteLine("Enter double number sequence separated using space.\nEnter '-' to stop typing. Every row should have the same size.");
+                        Console.WriteLine(
+                            "Enter double number sequence separated using space.\nEnter '-' to stop typing. Every row should have the same size.");
 
                         string input = Console.ReadLine().ToString();
 
@@ -58,7 +60,9 @@ namespace Lab_2
                         for (int j = 0; j < matrix[0].Length; j++)
                         {
                             Console.Write(matrix[i][j]);
+                            Console.Write(" ");
                         }
+
                         Console.Write("\n");
                     }
 
@@ -67,18 +71,19 @@ namespace Lab_2
                 case "3":
                     Console.WriteLine("What offset do you want?");
                     int offset = int.Parse(Console.ReadLine().ToString());
-                    
+
                     double[][] tempMatrix = new double[matrix.Length][];
                     for (int i = 0; i < matrix.Length; i++)
                     {
                         tempMatrix[i] = new double[matrix[i].Length];
                         Array.Copy(matrix[i], tempMatrix[i], matrix[i].Length);
                     }
+
                     for (int i = 1; i < matrix.Length; i += 2)
                     {
                         for (int j = 0; j < rowLenght; j++)
                         {
-                            tempMatrix[i][(j+offset) % (rowLenght)] = matrix[i][j];
+                            tempMatrix[i][(j + offset) % (rowLenght)] = matrix[i][j];
                         }
                     }
 

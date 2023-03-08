@@ -6,11 +6,11 @@ namespace Lab_2
 {
     public class Part_1_part_2
     {
-        static double[] vectora = new double[0];
-        static double[] vectorb = new double[0];
-        static double[] vectorc = new double[0];
+        double[] vectora = new double[0];
+        double[] vectorb = new double[0];
+        double[] vectorc = new double[0];
 
-        static int vectorSize = 0;
+        int vectorSize = 0;
 
         public void startMenu()
         {
@@ -31,7 +31,7 @@ namespace Lab_2
             Console.WriteLine("2-Make vector b");
             Console.WriteLine("3-Make vector c");
             Console.WriteLine("4-Show vectors values");
-            Console.WriteLine("5-Do lab_2 part 1 part 2");
+            Console.WriteLine("5-Calculate c=2<a,b>c-3*b. <a,b> is scalar multiplication");
             Console.WriteLine("6-Exit to main menu");
 
 
@@ -139,17 +139,19 @@ namespace Lab_2
                     showMenu();
                     break;
                 case "4":
+                    Console.WriteLine("[a][b][c]");
                     for (int i = 0; i < vectorSize; i++)
                     {
-                        Console.WriteLine("[" + vectora[i] + " " + vectorb[i] + " " + vectorc[i] + "]");
+                        Console.WriteLine("[" + vectora[i] +  "][" + vectorb[i] + "][" + vectorc[i] + "]");
                     }
+
                     showMenu();
                     break;
                 case "5":
-                    labStuff();
-                    
+                    calculateEquation();
+
                     Console.WriteLine("Done!");
-                    
+
                     showMenu();
                     break;
                 case "6":
@@ -160,6 +162,7 @@ namespace Lab_2
                     break;
             }
         }
+
         double ScalarProduct(double[] a, double[] b)
         {
             double result = 0;
@@ -171,18 +174,17 @@ namespace Lab_2
             return result;
         }
 
-        void labStuff()
+        void calculateEquation()
         {
             double scalarProduct = ScalarProduct(vectora, vectorb);
 
             double[] result = new double[vectora.Length];
             for (int i = 0; i < vectora.Length; i++)
-            {
+            { 
                 result[i] = 2 * scalarProduct * vectorc[i] - 3 * vectorb[i];
             }
 
             vectorc = result;
         }
-        
     }
 }

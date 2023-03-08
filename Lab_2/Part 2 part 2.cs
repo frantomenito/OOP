@@ -5,8 +5,8 @@ using System.Threading;
 namespace Lab_2
 {
     public class Part_2_part_2
-    {
-        static double[][] matrix = new double[0][];
+    { 
+        double[][] matrix = new double[0][];
         private int rowLenght = 0;
         public void showMenu()
         {
@@ -59,6 +59,8 @@ namespace Lab_2
                         for (int j = 0; j < matrix[0].Length; j++)
                         {
                             Console.Write(matrix[i][j]);
+                            Console.Write(" ");
+                            
                         }
                         Console.Write("\n");
                     }
@@ -66,21 +68,32 @@ namespace Lab_2
                     showMenu();
                     break;
                 case "3":
+                    if (matrix.Length != matrix[0].Length)
+                    {
+                        Console.WriteLine("Matrix is not squared. Redo matrix!");
+                        showMenu();
+                        break;
+                    }
                     Console.WriteLine("Converting matrix to triangular form...");
 
                     for (int i = 0; i < matrix[0].Length - 1; i++)
                     {
                         for (int j = i+1; j < matrix.Length; j++)
                         {
-                            double factor = matrix[j][i] / matrix[i][i];
-                            SubtractRow(matrix, j, i, factor);
+                            if (matrix[i][i] == 0)
+                            {
+                                swapRow(matrix, j, i);
+                            } else
+                            {
+                                double factor = matrix[j][i] / matrix[i][i];
+                                SubtractRow(matrix, j, i, factor);
+                            }
                         }
                     }
 
                     Console.WriteLine("Done!");
                     showMenu();
                     break;
-
                 case "4":
                     Console.WriteLine(@"Snap back to reality!");
                     break;
@@ -90,12 +103,21 @@ namespace Lab_2
                     break;
             }
         }
-
-        static void SubtractRow(double[][] matrix, int row, int fromRow, double factor)
+        void SubtractRow(double[][] matrix, int row, int fromRow, double factor)
         {
             for (int i = 0; i < matrix[row].Length; i++)
             {
                 matrix[row][i] -= factor * matrix[fromRow][i];
+            }
+        }
+
+        void swapRow(double[][] matrix, int row1, int row2)
+        {
+            for (int i = 0; i < matrix.Length; i++)
+            {
+                double temp = matrix[row1][i];
+                matrix[row1][i] = matrix[row2][i];
+                matrix[row2][i] = temp;
             }
         }
     }

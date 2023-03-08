@@ -6,8 +6,8 @@ namespace Lab_2
 {
     public class Part_1_part_3
     {
-        static double[] vector = new double[0];
-        
+        double[] vector = new double[0];
+
         public void showMenu()
         {
             Console.WriteLine("\n\nOptions Menu:");
@@ -27,18 +27,20 @@ namespace Lab_2
                     double[] newArray = input.Split(' ').Select(double.Parse).ToArray();
 
                     vector = newArray;
-                    
+
                     showMenu();
                     break;
                 case "2":
-                    Console.WriteLine("Enter what sequence you want to remove. First value should be less than second\n");
+                    Console.WriteLine(
+                        "Enter what sequence you want to remove. First value should be less than second\n");
 
                     string input2 = Console.ReadLine().ToString();
                     double[] valuesSequence = input2.Split(' ').Select(double.Parse).ToArray();
 
                     if (valuesSequence.Length != 2)
                     {
-                        Console.WriteLine("There should be 2 values. First less than second. For example 1 9. So values between this two number will be removed");
+                        Console.WriteLine(
+                            "There should be 2 values. First less than second. For example 1 9. So values between this two number will be removed");
                         showMenu();
                         break;
                     }
@@ -68,10 +70,18 @@ namespace Lab_2
                     showMenu();
                     break;
                 case "3":
-                    for (int i = 0; i < vector.Length; i++)
+                    if (vector.Length == 0)
                     {
-                        Console.WriteLine(vector[i]);
+                        Console.WriteLine("Vector is empty");
                     }
+                    else
+                    {
+                        for (int i = 0; i < vector.Length; i++)
+                        {
+                            Console.WriteLine(vector[i]);
+                        }
+                    }
+
                     showMenu();
                     break;
 
